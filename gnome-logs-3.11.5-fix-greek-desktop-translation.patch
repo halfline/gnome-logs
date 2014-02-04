@@ -1,0 +1,25 @@
+From 71edd4684d3697e7601a2989fb0240b0fc7f6772 Mon Sep 17 00:00:00 2001
+From: David King <davidk@gnome.org>
+Date: Tue, 4 Feb 2014 09:51:31 +0000
+Subject: [PATCH] Fix Greek desktop file translation
+
+---
+ po/el.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/po/el.po b/po/el.po
+index 4a05e72..819a6c8 100644
+--- a/po/el.po
++++ b/po/el.po
+@@ -111,7 +111,7 @@ msgstr "Προβολή λεπτομερών καταγραφών συμβάντ
+ #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+ #: ../data/gnome-logs.desktop.in.h:4
+ msgid "log;journal;debug;error;"
+-msgstr "καταγραφή;ημερολόγιο;αποσφαλμάτωση;σφάλμα"
++msgstr "καταγραφή;ημερολόγιο;αποσφαλμάτωση;σφάλμα;"
+ 
+ #: ../src/gl-application.c:77
+ msgid "translator-credits"
+-- 
+1.8.5.3
+

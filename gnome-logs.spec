@@ -1,12 +1,14 @@
 Name:		gnome-logs
-Version:	3.11.3
+Version:	3.11.5
 Release:	1%{?dist}
 Summary:	A log viewer for the systemd journal
 
 Group:		Applications/System
 License:	GPLv3+
 URL:		https://wiki.gnome.org/Apps/Logs
-Source0:	http://download.gnome.org/sources/gnome-logs/3.11/%{name}-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/gnome-logs/3.11/%{name}-%{version}.tar.xz
+# Broken desktop translation fixed after 3.11.5 was released.
+Patch0:		gnome-logs-3.11.5-fix-greek-desktop-translation.patch
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtds
@@ -22,6 +24,7 @@ A log viewer for the systemd journal.
 
 %prep
 %setup -q
+%patch0 -p1 -b .translation
 
 
 %build
@@ -39,7 +42,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/gnome-logs.desktop
 
 
 %post
-/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
+touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %postun
@@ -63,6 +66,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Feb 04 2014 David King <amigadave@amigadave.com> - 3.11.5-1
+- Update to 3.11.5
+
 * Tue Dec 17 2013 David King <amigadave@amigadave.com> - 3.11.3-1
 - Update to 3.11.3
 
