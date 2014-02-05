@@ -1,5 +1,5 @@
 Name:		gnome-logs
-Version:	3.11.5
+Version:	3.11.90
 Release:	1%{?dist}
 Summary:	A log viewer for the systemd journal
 
@@ -7,12 +7,12 @@ Group:		Applications/System
 License:	GPLv3+
 URL:		https://wiki.gnome.org/Apps/Logs
 Source0:	https://download.gnome.org/sources/gnome-logs/3.11/%{name}-%{version}.tar.xz
-# Broken desktop translation fixed after 3.11.5 was released.
-Patch0:		gnome-logs-3.11.5-fix-greek-desktop-translation.patch
 
+BuildRequires:	appdata-tools
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtds
 BuildRequires:	docbook-style-xsl
+BuildRequires:	gnome-common
 BuildRequires:	gtk3-devel
 BuildRequires:	intltool
 BuildRequires:	libxslt
@@ -24,7 +24,6 @@ A log viewer for the systemd journal.
 
 %prep
 %setup -q
-%patch0 -p1 -b .translation
 
 
 %build
@@ -38,7 +37,7 @@ make V=1 %{?_smp_mflags}
 
 
 %check
-desktop-file-validate %{buildroot}/%{_datadir}/applications/gnome-logs.desktop
+make check
 
 
 %post
@@ -66,6 +65,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Feb 18 2014 David King <amigadave@amigadave.com> - 3.11.90-1
+- Update to 3.11.90
+- Validate the desktop file and AppData using "make check"
+
 * Tue Feb 04 2014 David King <amigadave@amigadave.com> - 3.11.5-1
 - Update to 3.11.5
 
