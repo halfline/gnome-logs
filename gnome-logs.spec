@@ -1,6 +1,6 @@
 Name:		gnome-logs
 Version:	3.11.91
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	A log viewer for the systemd journal
 
 Group:		Applications/System
@@ -13,10 +13,10 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtds
 BuildRequires:	docbook-style-xsl
 BuildRequires:	gnome-common
-BuildRequires:	gtk3-devel
 BuildRequires:	intltool
 BuildRequires:	libxslt
-BuildRequires:	systemd-devel
+BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(libsystemd-journal)
 Requires:	gsettings-desktop-schemas
 
 %description
@@ -65,6 +65,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Sat Mar 08 2014 David King <amigadave@amigadave.com> - 3.11.91-2
+- Use pkgconfig with BuildRequires
+
 * Mon Mar 03 2014 David King <amigadave@amigadave.com> - 3.11.91-1
 - Update to 3.11.91
 
