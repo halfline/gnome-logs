@@ -1,12 +1,12 @@
 Name:		gnome-logs
-Version:	3.11.92
+Version:	3.12.0
 Release:	1%{?dist}
 Summary:	A log viewer for the systemd journal
 
 Group:		Applications/System
 License:	GPLv3+
 URL:		https://wiki.gnome.org/Apps/Logs
-Source0:	https://download.gnome.org/sources/gnome-logs/3.11/%{name}-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/gnome-logs/3.12/%{name}-%{version}.tar.xz
 
 BuildRequires:	appdata-tools
 BuildRequires:	desktop-file-utils
@@ -33,7 +33,7 @@ make V=1 %{?_smp_mflags}
 
 %install
 %make_install
-%find_lang gnome-logs --with-gnome
+%find_lang %{name} --with-gnome
 
 
 %check
@@ -65,6 +65,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Mar 17 2014 David King <amigadave@amigadave.com> - 3.12.0-1
+- Update to 3.12.0
+
 * Mon Mar 17 2014 David King <amigadave@amigadave.com> - 3.11.92-1
 - Update to 3.11.92
 
