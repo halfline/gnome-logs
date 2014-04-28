@@ -1,23 +1,23 @@
-Name:		gnome-logs
-Version:	3.12.1
-Release:	1%{?dist}
-Summary:	A log viewer for the systemd journal
+Name:           gnome-logs
+Version:        3.13.1
+Release:        1%{?dist}
+Summary:        Log viewer for the systemd journal
 
-Group:		Applications/System
-License:	GPLv3+
-URL:		https://wiki.gnome.org/Apps/Logs
-Source0:	https://download.gnome.org/sources/%{name}/3.12/%{name}-%{version}.tar.xz
+Group:          Applications/System
+License:        GPLv3+
+URL:            https://wiki.gnome.org/Apps/Logs
+Source0:        https://download.gnome.org/sources/%{name}/3.13/%{name}-%{version}.tar.xz
 
-BuildRequires:	appdata-tools
-BuildRequires:	desktop-file-utils
-BuildRequires:	docbook-dtds
-BuildRequires:	docbook-style-xsl
-BuildRequires:	gnome-common
-BuildRequires:	intltool
-BuildRequires:	libxslt
-BuildRequires:	pkgconfig(gtk+-3.0)
-BuildRequires:	pkgconfig(libsystemd-journal)
-Requires:	gsettings-desktop-schemas
+BuildRequires:  appdata-tools
+BuildRequires:  desktop-file-utils
+BuildRequires:  docbook-dtds
+BuildRequires:  docbook-style-xsl
+BuildRequires:  gnome-common
+BuildRequires:  intltool
+BuildRequires:  libxslt
+BuildRequires:  pkgconfig(gtk+-3.0)
+BuildRequires:  pkgconfig(libsystemd-journal)
+Requires:       gsettings-desktop-schemas
 
 %description
 A log viewer for the systemd journal.
@@ -55,16 +55,20 @@ fi
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
-%files -f gnome-logs.lang
+%files -f %{name}.lang
 %doc AUTHORS COPYING README NEWS
-%{_bindir}/gnome-logs
-%{_datadir}/appdata/gnome-logs.appdata.xml
-%{_datadir}/applications/gnome-logs.desktop
+%{_bindir}/%{name}
+%{_datadir}/appdata/
+%{_datadir}/applications/org.gnome.Logs.desktop
+%{_datadir}/dbus-1/services/org.gnome.Logs.service
 %{_datadir}/icons/hicolor/*/apps/gnome-logs.png
 %{_mandir}/man1/gnome-logs.1*
 
 
 %changelog
+* Tue Apr 29 2014 David King <amigadave@amigadave.com> - 3.13.1-1
+- Update to 3.13.1
+
 * Mon Apr 14 2014 David King <amigadave@amigadave.com> - 3.12.1-1
 - Update to 3.12.1
 
