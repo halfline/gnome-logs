@@ -1,13 +1,12 @@
 Name:           gnome-logs
-Version:        3.13.3
-Release:        2%{?dist}
+Version:        3.13.4
+Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
 Group:          Applications/System
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
 Source0:        https://download.gnome.org/sources/%{name}/3.13/%{name}-%{version}.tar.xz
-Patch0:         gnome-logs-3.13.3-fix-appdata-desktop.patch
 
 BuildRequires:  appdata-tools
 BuildRequires:  desktop-file-utils
@@ -25,7 +24,6 @@ A log viewer for the systemd journal.
 
 %prep
 %setup -q
-%patch0 -p1
 
 
 %build
@@ -34,7 +32,7 @@ make V=1 %{?_smp_mflags}
 
 
 %install
-%make_install
+make DESTDIR=%{buildroot} INSTALL="install -p" install
 %find_lang %{name} --with-gnome
 
 
@@ -68,6 +66,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Jul 21 2014 David King <amigadave@amigadave.com> - 3.13.4-1
+- Update to 3.13.4
+
 * Mon Jun 30 2014 David King <amigadave@amigadave.com> - 3.13.3-2
 - Fix AppData reference to desktop file
 
