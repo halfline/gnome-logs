@@ -1,6 +1,6 @@
 Name:           gnome-logs
-Version:        3.13.4
-Release:        2%{?dist}
+Version:        3.13.90
+Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
 Group:          Applications/System
@@ -66,6 +66,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Aug 18 2014 David King <amigadave@amigadave.com> - 3.13.90-1
+- Update to 3.13.90
+
 * Sat Aug 16 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.13.4-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
