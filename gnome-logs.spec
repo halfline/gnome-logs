@@ -1,5 +1,5 @@
 Name:           gnome-logs
-Version:        3.13.90
+Version:        3.13.91
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
@@ -66,6 +66,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Sep 01 2014 David King <amigadave@amigadave.com> - 3.13.91-1
+- Update to 3.13.91
+
 * Mon Aug 18 2014 David King <amigadave@amigadave.com> - 3.13.90-1
 - Update to 3.13.90
 
