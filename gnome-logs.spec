@@ -58,7 +58,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %files -f %{name}.lang
 %doc AUTHORS COPYING README NEWS
 %{_bindir}/%{name}
-%{_datadir}/appdata/
+%{_datadir}/appdata/org.gnome.Logs.appdata.xml
 %{_datadir}/applications/org.gnome.Logs.desktop
 %{_datadir}/dbus-1/services/org.gnome.Logs.service
 %{_datadir}/icons/hicolor/*/apps/gnome-logs.png
