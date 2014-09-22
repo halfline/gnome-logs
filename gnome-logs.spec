@@ -1,12 +1,12 @@
 Name:           gnome-logs
-Version:        3.13.92
+Version:        3.14.0
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
 Group:          Applications/System
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
-Source0:        https://download.gnome.org/sources/%{name}/3.13/%{name}-%{version}.tar.xz
+Source0:        https://download.gnome.org/sources/%{name}/3.14/%{name}-%{version}.tar.xz
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  docbook-dtds
@@ -66,6 +66,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Sep 23 2014 David King <amigadave@amigadave.com> - 3.14.0-1
+- Update to 3.13.92
+- Do not own the appdata directory
+
 * Mon Sep 15 2014 David King <amigadave@amigadave.com> - 3.13.92-1
 - Update to 3.13.92
 
