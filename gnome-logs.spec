@@ -1,16 +1,20 @@
 Name:           gnome-logs
 Version:        3.14.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Log viewer for the systemd journal
 
 Group:          Applications/System
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
 Source0:        https://download.gnome.org/sources/%{name}/3.14/%{name}-%{version}.tar.xz
+# Add HighContrast application icon. Patch from upstream git.
+# https://bugzilla.redhat.com/show_bug.cgi?id=1152796
+Patch0:         gnome-logs-3.14.1-add-highcontrast-application-icon.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  docbook-dtds
 BuildRequires:  docbook-style-xsl
+BuildRequires:  git
 BuildRequires:  gnome-common
 BuildRequires:  intltool
 BuildRequires:  libxslt
@@ -24,6 +28,8 @@ A log viewer for the systemd journal.
 
 %prep
 %setup -q
+# Ugly, but necessary as patch does not support git binary diffs.
+git apply %{PATCH0}
 
 
 %build
@@ -41,17 +47,21 @@ make check
 
 
 %post
+touch --no-create %{_datadir}/icons/HighContrast &>/dev/null || :
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %postun
 if [ $1 -eq 0 ] ; then
+    touch --no-create %{_datadir}/icons/HighContrast &>/dev/null
     touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    gtk-update-icon-cache %{_datadir}/icons/HighContrast &>/dev/null || :
     gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 fi
 
 
 %posttrans
+gtk-update-icon-cache %{_datadir}/icons/HighContrast &>/dev/null || :
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
@@ -61,11 +71,15 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/appdata/org.gnome.Logs.appdata.xml
 %{_datadir}/applications/org.gnome.Logs.desktop
 %{_datadir}/dbus-1/services/org.gnome.Logs.service
-%{_datadir}/icons/hicolor/*/apps/gnome-logs.png
+%{_datadir}/icons/HighContrast/*/apps/%{name}.png
+%{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_mandir}/man1/gnome-logs.1*
 
 
 %changelog
+* Wed Oct 15 2014 David King <amigadave@amigadave.com> - 3.14.1-2
+- Add HighContrast application icon (#1152796)
+
 * Mon Oct 13 2014 David King <amigadave@amigadave.com> - 3.14.1-1
 - Update to 3.14.1
 
