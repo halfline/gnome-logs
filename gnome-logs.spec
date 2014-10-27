@@ -1,20 +1,16 @@
 Name:           gnome-logs
-Version:        3.14.1
-Release:        2%{?dist}
+Version:        3.15.1
+Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
 Group:          Applications/System
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
-Source0:        https://download.gnome.org/sources/%{name}/3.14/%{name}-%{version}.tar.xz
-# Add HighContrast application icon. Patch from upstream git.
-# https://bugzilla.redhat.com/show_bug.cgi?id=1152796
-Patch0:         gnome-logs-3.14.1-add-highcontrast-application-icon.patch
+Source0:        https://download.gnome.org/sources/%{name}/3.15/%{name}-%{version}.tar.xz
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  docbook-dtds
 BuildRequires:  docbook-style-xsl
-BuildRequires:  git
 BuildRequires:  gnome-common
 BuildRequires:  intltool
 BuildRequires:  libxslt
@@ -28,8 +24,6 @@ A log viewer for the systemd journal.
 
 %prep
 %setup -q
-# Ugly, but necessary as patch does not support git binary diffs.
-git apply %{PATCH0}
 
 
 %build
@@ -77,6 +71,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Oct 27 2014 David King <amigadave@amigadave.com> - 3.15.1-1
+- Update to 3.15.1
+
 * Wed Oct 15 2014 David King <amigadave@amigadave.com> - 3.14.1-2
 - Add HighContrast application icon (#1152796)
 
