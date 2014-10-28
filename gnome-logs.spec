@@ -7,6 +7,8 @@ Group:          Applications/System
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
 Source0:        https://download.gnome.org/sources/%{name}/3.15/%{name}-%{version}.tar.xz
+# From upstream git, to fix make check.
+Patch0:         gnome-logs-3.15.1-add-missing-appdata-elements.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  docbook-dtds
@@ -24,6 +26,7 @@ A log viewer for the systemd journal.
 
 %prep
 %setup -q
+%patch0 -p1
 
 
 %build
@@ -71,7 +74,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
-* Mon Oct 27 2014 David King <amigadave@amigadave.com> - 3.15.1-1
+* Tue Oct 28 2014 David King <amigadave@amigadave.com> - 3.15.1-1
 - Update to 3.15.1
 
 * Wed Oct 15 2014 David King <amigadave@amigadave.com> - 3.14.1-2

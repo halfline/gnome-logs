@@ -1,0 +1,31 @@
+From 899e87136384eac691fdaa0c17c26339d2a3a692 Mon Sep 17 00:00:00 2001
+From: David King <davidk@gnome.org>
+Date: Tue, 28 Oct 2014 07:36:16 +0000
+Subject: [PATCH] Add name and summary elements to AppData
+
+Pacify appstream-util validate.
+---
+ data/org.gnome.Logs.appdata.xml.in | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/data/org.gnome.Logs.appdata.xml.in b/data/org.gnome.Logs.appdata.xml.in
+index 9e08323..3857ca8 100644
+--- a/data/org.gnome.Logs.appdata.xml.in
++++ b/data/org.gnome.Logs.appdata.xml.in
+@@ -4,10 +4,9 @@
+     <id type="desktop">org.gnome.Logs.desktop</id>
+     <metadata_license>CC0-1.0</metadata_license>
+     <project_license>GPL-3.0+</project_license>
+-<!-- Both taken from desktop file.
+-    <name>Logs</name>
+-    <summary>View detailed event logs for the system</summary>
+--->
++<!-- Name and summary taken from the desktop file. -->
++    <_name>Logs</_name>
++    <_summary>View detailed event logs for the system</_summary>
+     <description>
+         <_p>Logs shows events from the systemd journal, and sorts them into
+         categories, such as hardware and applications.</_p>
+-- 
+2.1.0
+
