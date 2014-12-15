@@ -1,5 +1,5 @@
 Name:           gnome-logs
-Version:        3.15.2
+Version:        3.15.3
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
@@ -51,12 +51,14 @@ if [ $1 -eq 0 ] ; then
     touch --no-create %{_datadir}/icons/hicolor &>/dev/null
     gtk-update-icon-cache %{_datadir}/icons/HighContrast &>/dev/null || :
     gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+    glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 fi
 
 
 %posttrans
 gtk-update-icon-cache %{_datadir}/icons/HighContrast &>/dev/null || :
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 
 %files -f %{name}.lang
@@ -65,12 +67,16 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/appdata/org.gnome.Logs.appdata.xml
 %{_datadir}/applications/org.gnome.Logs.desktop
 %{_datadir}/dbus-1/services/org.gnome.Logs.service
+%{_datadir}/glib-2.0/schemas/org.gnome.Logs.*.xml
 %{_datadir}/icons/HighContrast/*/apps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_mandir}/man1/gnome-logs.1*
 
 
 %changelog
+* Mon Dec 15 2014 David King <amigadave@amigadave.com> - 3.15.3-1
+- Update to 3.15.3
+
 * Mon Nov 24 2014 David King <amigadave@amigadave.com> - 3.15.2-1
 - Update to 3.15.2
 
