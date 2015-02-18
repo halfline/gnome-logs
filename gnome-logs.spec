@@ -62,7 +62,8 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 
 %files -f %{name}.lang
-%doc AUTHORS COPYING README NEWS
+%doc AUTHORS README NEWS
+%license COPYING
 %{_bindir}/%{name}
 %{_datadir}/appdata/org.gnome.Logs.appdata.xml
 %{_datadir}/applications/org.gnome.Logs.desktop
@@ -76,6 +77,7 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 %changelog
 * Wed Feb 18 2015 David King <amigadave@amigadave.com> - 3.15.90-1
 - Update to 3.15.90
+- Use license macro for COPYING
 
 * Mon Jan 19 2015 David King <amigadave@amigadave.com> - 3.15.4-1
 - Update to 3.15.4
