@@ -1,12 +1,12 @@
 Name:           gnome-logs
-Version:        3.16.0
+Version:        3.16.1
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
 Group:          Applications/System
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
-Source0:        https://download.gnome.org/sources/%{name}/3.15/%{name}-%{version}.tar.xz
+Source0:        https://download.gnome.org/sources/%{name}/3.16/%{name}-%{version}.tar.xz
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  docbook-dtds
@@ -41,22 +41,18 @@ make check
 
 
 %post
-touch --no-create %{_datadir}/icons/HighContrast &>/dev/null || :
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %postun
 if [ $1 -eq 0 ] ; then
-    touch --no-create %{_datadir}/icons/HighContrast &>/dev/null
     touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    gtk-update-icon-cache %{_datadir}/icons/HighContrast &>/dev/null || :
     gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
     glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 fi
 
 
 %posttrans
-gtk-update-icon-cache %{_datadir}/icons/HighContrast &>/dev/null || :
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
@@ -69,12 +65,15 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 %{_datadir}/applications/org.gnome.Logs.desktop
 %{_datadir}/dbus-1/services/org.gnome.Logs.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Logs.*.xml
-%{_datadir}/icons/HighContrast/*/apps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
+%{_datadir}/icons/hicolor/symbolic/apps/%{name}-symbolic.svg
 %{_mandir}/man1/gnome-logs.1*
 
 
 %changelog
+* Mon Apr 13 2015 David King <amigadave@amigadave.com> - 3.16.1-1
+- Update to 3.16.1
+
 * Mon Mar 23 2015 David King <amigadave@amigadave.com> - 3.16.0-1
 - Update to 3.16.0
 
