@@ -1,5 +1,5 @@
 Name:           gnome-logs
-Version:        3.16.1
+Version:        3.17.1
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
@@ -71,6 +71,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 
 %changelog
+* Mon Apr 27 2015 David King <amigadave@amigadave.com> - 3.17.1-1
+- Update to 3.17.1
+
 * Mon Apr 13 2015 David King <amigadave@amigadave.com> - 3.16.1-1
 - Update to 3.16.1
 
