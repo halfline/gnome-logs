@@ -1,12 +1,12 @@
 Name:           gnome-logs
-Version:        3.17.1
+Version:        3.17.2
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
 Group:          Applications/System
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
-Source0:        https://download.gnome.org/sources/%{name}/3.16/%{name}-%{version}.tar.xz
+Source0:        https://download.gnome.org/sources/%{name}/3.17/%{name}-%{version}.tar.xz
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  docbook-dtds
@@ -15,7 +15,7 @@ BuildRequires:  gnome-common
 BuildRequires:  intltool
 BuildRequires:  libxslt
 BuildRequires:  pkgconfig(gtk+-3.0)
-BuildRequires:  pkgconfig(libsystemd-journal)
+BuildRequires:  pkgconfig(libsystemd)
 BuildRequires:  /usr/bin/appstream-util
 Requires:       gsettings-desktop-schemas
 
@@ -71,6 +71,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 
 %changelog
+* Mon May 25 2015 David King <amigadave@amigadave.com> - 3.17.2-1
+- Update to 3.17.2
+
 * Mon Apr 27 2015 David King <amigadave@amigadave.com> - 3.17.1-1
 - Update to 3.17.1
 
