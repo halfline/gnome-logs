@@ -1,12 +1,12 @@
 Name:           gnome-logs
-Version:        3.17.91
+Version:        3.18.0
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
 Group:          Applications/System
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
-Source0:        https://download.gnome.org/sources/%{name}/3.17/%{name}-%{version}.tar.xz
+Source0:        https://download.gnome.org/sources/%{name}/3.18/%{name}-%{version}.tar.xz
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  docbook-dtds
@@ -71,6 +71,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 
 %changelog
+* Tue Sep 22 2015 David King <amigadave@amigadave.com> - 3.18.0-1
+- Update to 3.18.0
+
 * Tue Sep 01 2015 David King <amigadave@amigadave.com> - 3.17.91-1
 - Update to 3.17.91
 
