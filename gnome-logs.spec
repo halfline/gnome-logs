@@ -1,5 +1,5 @@
 Name:           gnome-logs
-Version:        3.19.2
+Version:        3.19.3
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
@@ -7,6 +7,8 @@ Group:          Applications/System
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
 Source0:        https://download.gnome.org/sources/%{name}/3.19/%{name}-%{version}.tar.xz
+# Upstream patch to fix tests for changed internal API.
+Patch0:         gnome-logs-3.19.3-fix-tests.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  docbook-dtds
@@ -24,6 +26,7 @@ A log viewer for the systemd journal.
 
 %prep
 %setup -q
+%patch0 -p1
 
 
 %build
@@ -71,6 +74,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 
 %changelog
+* Mon Dec 14 2015 David King <amigadave@amigadave.com> - 3.19.3-1
+- Update to 3.19.3
+
 * Tue Nov 24 2015 David King <amigadave@amigadave.com> - 3.19.2-1
 - Update to 3.19.2
 

@@ -1,0 +1,25 @@
+From 6f68e55ae8db146e8ac409af33a49117be5fa082 Mon Sep 17 00:00:00 2001
+From: Jonathan Kang <jonathan121537@gmail.com>
+Date: Tue, 15 Dec 2015 07:08:13 +0800
+Subject: [PATCH] Fix test error for few argument in tests/test-gl-util.c
+
+---
+ tests/test-gl-util.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/test-gl-util.c b/tests/test-gl-util.c
+index 5fac6d9..abfcb16 100644
+--- a/tests/test-gl-util.c
++++ b/tests/test-gl-util.c
+@@ -54,7 +54,7 @@ util_timestamp_to_display (void)
+         gchar *compare;
+ 
+         compare = gl_util_timestamp_to_display (times[i].microsecs, now,
+-                                                times[i].format);
++                                                times[i].format, FALSE);
+         g_assert_cmpstr (compare, ==, times[i].time);
+         g_free (compare);
+     }
+-- 
+2.6.4
+
