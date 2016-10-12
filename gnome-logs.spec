@@ -31,7 +31,7 @@ make V=1 %{?_smp_mflags}
 
 
 %install
-make DESTDIR=%{buildroot} INSTALL="install -p" install
+%make_install
 %find_lang %{name} --with-gnome
 
 
@@ -72,6 +72,7 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 %changelog
 * Wed Oct 12 2016 Kalev Lember <klember@redhat.com> - 3.22.1-2
 - Don't set group tags
+- Use make_install macro
 
 * Mon Oct 10 2016 David King <amigadave@amigadave.com> - 3.22.1-1
 - Update to 3.22.1
