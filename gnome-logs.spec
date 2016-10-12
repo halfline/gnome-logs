@@ -1,9 +1,8 @@
 Name:           gnome-logs
 Version:        3.22.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Log viewer for the systemd journal
 
-Group:          Applications/System
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
 Source0:        https://download.gnome.org/sources/%{name}/3.22/%{name}-%{version}.tar.xz
@@ -71,6 +70,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 
 %changelog
+* Wed Oct 12 2016 Kalev Lember <klember@redhat.com> - 3.22.1-2
+- Don't set group tags
+
 * Mon Oct 10 2016 David King <amigadave@amigadave.com> - 3.22.1-1
 - Update to 3.22.1
 
