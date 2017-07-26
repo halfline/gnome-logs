@@ -1,6 +1,6 @@
 Name:           gnome-logs
 Version:        3.25.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Log viewer for the systemd journal
 
 License:        GPLv3+
@@ -70,6 +70,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 
 %changelog
+* Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 3.25.4-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Thu Jul 20 2017 David King <amigadave@amigadave.com> - 3.25.4-1
 - Update to 3.25.4
 
