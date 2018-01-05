@@ -1,6 +1,6 @@
 Name:           gnome-logs
 Version:        3.27.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Log viewer for the systemd journal
 
 License:        GPLv3+
@@ -39,23 +39,6 @@ make V=1 %{?_smp_mflags}
 make check
 
 
-%post
-touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-
-
-%postun
-if [ $1 -eq 0 ] ; then
-    touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-    glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
-fi
-
-
-%posttrans
-gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
-
-
 %files -f %{name}.lang
 %doc AUTHORS README NEWS
 %license COPYING
@@ -70,6 +53,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 
 %changelog
+* Fri Jan 05 2018 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 3.27.3-2
+- Remove obsolete scriptlets
+
 * Mon Dec 11 2017 David King <amigadave@amigadave.com> - 3.27.3-1
 - Update to 3.27.3
 
