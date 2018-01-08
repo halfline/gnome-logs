@@ -1,6 +1,6 @@
 Name:           gnome-logs
-Version:        3.27.3
-Release:        2%{?dist}
+Version:        3.27.4
+Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
 License:        GPLv3+
@@ -53,6 +53,9 @@ make check
 
 
 %changelog
+* Mon Jan 08 2018 David King <amigadave@amigadave.com> - 3.27.4-1
+- Update to 3.27.4
+
 * Fri Jan 05 2018 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 3.27.3-2
 - Remove obsolete scriptlets
 
