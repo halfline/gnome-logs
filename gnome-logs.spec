@@ -1,5 +1,5 @@
 Name:           gnome-logs
-Version:        3.27.4
+Version:        3.27.90
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
@@ -43,16 +43,19 @@ make check
 %doc AUTHORS README NEWS
 %license COPYING
 %{_bindir}/%{name}
-%{_datadir}/appdata/org.gnome.Logs.appdata.xml
 %{_datadir}/applications/org.gnome.Logs.desktop
 %{_datadir}/dbus-1/services/org.gnome.Logs.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Logs.*.xml
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_datadir}/icons/hicolor/symbolic/apps/%{name}-symbolic.svg
+%{_datadir}/metainfo/org.gnome.Logs.appdata.xml
 %{_mandir}/man1/gnome-logs.1*
 
 
 %changelog
+* Mon Feb 05 2018 David King <amigadave@amigadave.com> - 3.27.90-1
+- Update to 3.27.90
+
 * Mon Jan 08 2018 David King <amigadave@amigadave.com> - 3.27.4-1
 - Update to 3.27.4
 
