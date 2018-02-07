@@ -1,6 +1,6 @@
 Name:           gnome-logs
 Version:        3.27.90
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Log viewer for the systemd journal
 
 License:        GPLv3+
@@ -53,6 +53,9 @@ make check
 
 
 %changelog
+* Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 3.27.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Mon Feb 05 2018 David King <amigadave@amigadave.com> - 3.27.90-1
 - Update to 3.27.90
 
