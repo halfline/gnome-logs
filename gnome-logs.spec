@@ -1,11 +1,11 @@
 Name:           gnome-logs
-Version:        3.27.92
+Version:        3.28.0
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
-Source0:        https://download.gnome.org/sources/%{name}/3.27/%{name}-%{version}.tar.xz
+Source0:        https://download.gnome.org/sources/%{name}/3.28/%{name}-%{version}.tar.xz
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  docbook-dtds
@@ -43,16 +43,19 @@ make check
 %doc AUTHORS README NEWS
 %license COPYING
 %{_bindir}/%{name}
+%{_datadir}/appdata/org.gnome.Logs.appdata.xml
 %{_datadir}/applications/org.gnome.Logs.desktop
 %{_datadir}/dbus-1/services/org.gnome.Logs.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Logs.*.xml
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_datadir}/icons/hicolor/symbolic/apps/%{name}-symbolic.svg
-%{_datadir}/metainfo/org.gnome.Logs.appdata.xml
 %{_mandir}/man1/gnome-logs.1*
 
 
 %changelog
+* Mon Mar 12 2018 Kalev Lember <klember@redhat.com> - 3.28.0-1
+- Update to 3.28.0
+
 * Tue Mar 06 2018 David King <amigadave@amigadave.com> - 3.27.92-1
 - Update to 3.27.92
 
