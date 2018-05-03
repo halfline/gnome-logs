@@ -1,11 +1,11 @@
 Name:           gnome-logs
-Version:        3.26.0
+Version:        3.28.0
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
 License:        GPLv3+
 URL:            https://wiki.gnome.org/Apps/Logs
-Source0:        https://download.gnome.org/sources/%{name}/3.26/%{name}-%{version}.tar.xz
+Source0:        https://download.gnome.org/sources/%{name}/3.28/%{name}-%{version}.tar.xz
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  docbook-dtds
@@ -39,23 +39,6 @@ make V=1 %{?_smp_mflags}
 make check
 
 
-%post
-touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-
-
-%postun
-if [ $1 -eq 0 ] ; then
-    touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-    glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
-fi
-
-
-%posttrans
-gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
-
-
 %files -f %{name}.lang
 %doc AUTHORS README NEWS
 %license COPYING
@@ -70,6 +53,33 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 
 %changelog
+* Mon Mar 12 2018 Kalev Lember <klember@redhat.com> - 3.28.0-1
+- Update to 3.28.0
+
+* Tue Mar 06 2018 David King <amigadave@amigadave.com> - 3.27.92-1
+- Update to 3.27.92
+
+* Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 3.27.90-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
+* Mon Feb 05 2018 David King <amigadave@amigadave.com> - 3.27.90-1
+- Update to 3.27.90
+
+* Mon Jan 08 2018 David King <amigadave@amigadave.com> - 3.27.4-1
+- Update to 3.27.4
+
+* Fri Jan 05 2018 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 3.27.3-2
+- Remove obsolete scriptlets
+
+* Mon Dec 11 2017 David King <amigadave@amigadave.com> - 3.27.3-1
+- Update to 3.27.3
+
+* Mon Nov 13 2017 David King <amigadave@amigadave.com> - 3.27.2-1
+- Update to 3.27.2 (#1512514)
+
+* Fri Oct 20 2017 David King <amigadave@amigadave.com> - 3.27.1-1
+- Update to 3.27.1 (#1504344)
+
 * Mon Sep 11 2017 David King <amigadave@amigadave.com> - 3.26.0-1
 - Update to 3.26.0
 
