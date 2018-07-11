@@ -1,5 +1,5 @@
 Name:           gnome-logs
-Version:        3.28.4
+Version:        3.28.5
 Release:        1%{?dist}
 Summary:        Log viewer for the systemd journal
 
@@ -53,6 +53,9 @@ make check
 
 
 %changelog
+* Wed Jul 11 2018 David King <amigadave@amigadave.com> - 3.28.5-1
+- Update to 3.28.5
+
 * Wed Jul 11 2018 David King <amigadave@amigadave.com> - 3.28.4-1
 - Update to 3.28.4
 
