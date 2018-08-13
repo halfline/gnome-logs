@@ -1,6 +1,6 @@
 Name:           gnome-logs
 Version:        3.28.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Log viewer for the systemd journal
 
 License:        GPLv3+
@@ -16,6 +16,7 @@ BuildRequires:  libxslt
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(libsystemd)
 BuildRequires:  /usr/bin/appstream-util
+BuildRequires:  python3-devel
 Requires:       gsettings-desktop-schemas
 
 %description
@@ -53,6 +54,10 @@ make check
 
 
 %changelog
+* Mon Aug 13 2018 Ray Strode <rstrode@redhat.com> - 3.28.5-2
+- BuildRequires python3 binary
+  Resolves: #1615525
+
 * Wed Jul 11 2018 David King <amigadave@amigadave.com> - 3.28.5-1
 - Update to 3.28.5
 
